@@ -1,0 +1,28 @@
+{% load static %} 
+{%load crispy_forms_tags %} 
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>MatraTatva- Login</title>
+</head>
+<body>
+
+    <form class="form1" id="login-form" method="post" action="" ">
+        {% csrf_token %} 
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-6 " >Login</legend>
+            {{ form|crispy}}
+            <input type="submit" value="Sign up" class="btn btn-primary pull-right" />
+        </fieldset>
+    </form>
+
+    <div class="border-top pt-4">
+        <small class="text-muted">
+            Need An Account?<a class="ml-2" href="{% url 'signup' %}"> Sign Up Now</a>
+        </small>
+    </div>
+</body>
+
+</html>
