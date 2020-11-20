@@ -1,0 +1,39 @@
+{% load static %} 
+{% load crispy_forms_tags %} 
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>MatraTatva- Dashboard</title>
+</head>
+<body>
+    <form class="form1" id="login-form" method="post" action="{% url 'bp-record' %}">
+        {% csrf_token %} 
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-6 " >BP Record</legend>
+            {{ bpform|crispy}}
+            <input type="submit" value="BP Record" class="btn btn-primary pull-right" />
+        </fieldset>
+    </form>
+
+    <form class="form1" id="login-form" method="post" action="{% url 'sugar-record' %}">
+        {% csrf_token %} 
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-6 " >Sugar Record</legend>
+            {{ sugarform|crispy}}
+            <input type="submit" value="Sugar Record" class="btn btn-primary pull-right" />
+        </fieldset>
+    </form>
+    
+    <form class="form1" id="login-form" method="post" action="{% url 'report-record' %}">
+        {% csrf_token %} 
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-6 " >Add a Report</legend>
+            {{ reportform|crispy }}
+            <input type="submit" value="Report Record" class="btn btn-primary pull-right" />
+        </fieldset>
+    </form>
+</body>
+
+</html>
