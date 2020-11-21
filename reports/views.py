@@ -20,6 +20,20 @@ def dashboard(request):
     return render(request, 'reports/dashboard.html', context)
 
 @login_required
+def before1(request):
+    return render(request, 'reports/before.html')
+
+
+@login_required
+def during1(request):
+    return render(request, 'reports/during.html')
+
+
+@login_required
+def after1(request):
+    return render(request, 'reports/after.html')
+
+@login_required
 def addbp(request):
     if request.method == 'POST':
         form = BPForm(request.POST)
