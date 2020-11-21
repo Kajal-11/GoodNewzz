@@ -17,4 +17,10 @@ class Report(models.Model):
     time        = models.DateTimeField()
     title       = models.CharField(default='', max_length=500)
     report_image = models.ImageField(upload_to='reports', blank=True)
+
+class Reminder(models.Model):
+    patient     = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    time        = models.DateTimeField()
+    reminder_message = models.CharField(default='', max_length=200)
+    
     

@@ -46,7 +46,7 @@ def userregister(request):
             )
             email.send()
             
-            messages.success(request, f'Your account has been created! You can login now.')
+            messages.success(request, f'Your account has been created! Verify your account throught the link emailed to you.')
             return redirect('login')
     else:
         form = UserRegisterForm()

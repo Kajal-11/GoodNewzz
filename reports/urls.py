@@ -2,7 +2,7 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-
+    path('reminders/',  views.reminder,      name='reminder'),
     path('before1/',          views.dashboard,		name='before1'),
     path('during1/',          views.dashboard,		name='during1'),
     path('after1/',          views.dashboard,		name='after1'),
