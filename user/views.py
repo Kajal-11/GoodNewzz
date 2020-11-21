@@ -64,6 +64,6 @@ def activate(request, uidb64, token):
     if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return HttpResponse('Thank you for your email confirmation. Now you can login your account. Click on the link to <a href="https://matratatva.herokuapp.com/login">login</a>.')
     else:
         return HttpResponse('Activation link is invalid!')
