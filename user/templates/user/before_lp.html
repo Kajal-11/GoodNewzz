@@ -17,8 +17,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
 	<!-- CSS Files -->
-	<link href="../css/bootstrap.min.css" rel="stylesheet" />
-	<link href="../css/material-kit.css" rel="stylesheet" />
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/material-kit.css' %}" rel="stylesheet" />
 </head>
 
 <body class="about-us">
@@ -32,21 +32,35 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="../presentation.html">Maatratva</a>
+				<a class="navbar-brand" href="{% url 'home' %}">Maatratva</a>
 				<div id="google_translate_element"></div>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navigation-example">
 				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Do's and Dont's
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu dropdown-with-icons">
+							<li> Before Pregnancy
+								</a>
+							</li>
+							<li>
+								<a href="sections.html#features">During Pregnancy
+								</a>
+							</li>
+							<li>
+								<a href="sections.html#blogs">After Pregnancy
+								</a>
+							</li>
+						</ul>
+					</li>
 					<li>
-						<a href="../index.html">
-							<i class="material-icons">apps</i> Sign Out
+						<a href="{% url 'logout' %}">
+							<i class="material-icons">how_to_reg</i> Sign Out
 						</a>
 					</li>
-
-
-				</ul>
-				</li>
 				</ul>
 			</div>
 		</div>
@@ -245,63 +259,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="about-services features-2">
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2 text-center">
-								<h2 class="title">We build awesome products</h2>
-								<h5 class="description">This is the paragraph where you can write more details about
-									your
-									product. Keep you user engaged by providing meaningful information.</h5>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-md-4">
-								<div class="info info-horizontal">
-									<div class="icon icon-rose">
-										<i class="material-icons">gesture</i>
-									</div>
-									<div class="description">
-										<h4 class="info-title">1. Design</h4>
-										<p>The moment you use Material Kit, you know you’ve never felt anything like it.
-											With a
-											single use, this powerfull UI Kit lets you do more than ever before. </p>
-										<a href="#pablo">Find more...</a>
-									</div>
-								</div>
-
-
-							<div class="col-md-4">
-								<div class="info info-horizontal">
-									<div class="icon icon-rose">
-										<i class="material-icons">build</i>
-									</div>
-									<div class="description">
-										<h4 class="info-title">2. Develop</h4>
-										<p>Divide details about your product or agency work into parts. Write a few
-											lines about
-											each one. A paragraph describing a feature will be enough.</p>
-										<a href="#pablo">Find more...</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-4">
-								<div class="info info-horizontal">
-									<div class="icon icon-rose">
-										<i class="material-icons">mode_edit</i>
-									</div>
-									<div class="description">
-										<h4 class="info-title">3. Make Edits</h4>
-										<p>Divide details about your product or agency work into parts. Write a few
-											lines about
-											each one. A paragraph describing a feature will be enough.</p>
-										<a href="#pablo">Find more...</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 
@@ -355,30 +312,30 @@
 <script type="text/javascript"
 	src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<script src="../js/jquery.min.js" type="text/javascript"></script>
-<script src="../js/bootstrap.min.js" type="text/javascript"></script>
-<script src="../js/material.min.js"></script>
+<script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/material.min.js' %}"></script>
 
 <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="../js/nouislider.min.js" type="text/javascript"></script>
+<script src="{% static 'js/nouislider.min.js' %}" type="text/javascript"></script>
 
 <!--	Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
-<script src="../js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="{% static 'js/bootstrap-datepicker.js' %}" type="text/javascript"></script>
 
 <!--	Plugin for Select Form control, full documentation here: https://github.com/FezVrasta/dropdown.js -->
-<script src="../js/jquery.dropdown.js" type="text/javascript"></script>
+<script src="{% static 'js/jquery.dropdown.js' %}" type="text/javascript"></script>
 
 <!--	Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/  -->
-<script src="../js/jquery.tagsinput.js"></script>
+<script src="{% static 'js/jquery.tagsinput.js' %}"></script>
 
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="../js/jasny-bootstrap.min.js"></script>
+<script src="{% static 'js/jasny-bootstrap.min.js' %}"></script>
 
 <!-- Plugin For Google Maps -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
 <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
-<script src="../js/material-kit.js" type="text/javascript"></script>
+<script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
 
 
 </html>
