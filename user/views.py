@@ -12,6 +12,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from .forms import UserRegisterForm
 from .models import User
 
+def home(request):
+    return render(request, 'user/landing-page.html')
 
 def userregister(request):
     if request.method == 'POST':
