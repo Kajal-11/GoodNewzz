@@ -5,78 +5,15 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>Maatratva</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-
-    <!-- CSS Files -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/material-kit.css' %}" rel="stylesheet" />
 </head>
 
 <body class="contact-page">
-    {% if messages %}
-    <div style="background: black; height:80px; width: 100%"></div>
-    <ul class="messages"
-        style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
-        {% for message in messages %}
-        <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    <nav class="navbar navbar-inverse navbar-fixed-top ">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../presentation.html">Maatratva</a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="navigation-example">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Do's and Dont's
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu dropdown-with-icons">
-							<li>
-								<a href="{% url 'before' %}">Before Pregnancy
-								</a>
-							</li>
-							<li>
-								<a href="{% url 'during' %}">During Pregnancy
-								</a>
-							</li>
-							<li>
-								<a href="{% url 'after' %}">After Pregnancy
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="{% url 'home' %}">Sign Out
-						</a>
-					</li>
-					<li id="google_translate_element"></li>
-				</ul>
-			</div>
-        </div>
-    </nav>
-
     <div id="contactUsMap" class="big-map"></div>
 
     <div class="main main-raised">
@@ -92,88 +29,105 @@
         </div>
     </div>
 
+    <!-- <div id="container" class="col-md-offset-3" style="width: 50%;">
+        <canvas id="population-chart" data-url="{% url 'bp-chart' %}"></canvas>
+    </div>
+    <br>
+    <br>
 
-    <footer class="footer">
-        <div class="container">
-            <nav class="pull-left">
-                <ul>
-                    <li>
-                        <a href="http://www.creative-tim.com">
-                            Creative Tim
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://presentation.creative-tim.com">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://blog.creative-tim.com">
-                            Blog
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.creative-tim.com/license">
-                            Licenses
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="copyright pull-right">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i>
-                by Creative Tim
-            </div>
-        </div>
-    </footer>
-</body>
-<!--   Core JS Files   -->
-<!-- BotPenguin bot script starts here -->
-<script id="Ym90cGVuZ3VpbkFwaQ" src="https://cdn.botpenguin.com/bot.js?apiKey=G%263_a%28-%3E%29VsCVCWo%7ED6X%3EI"
-    async></script>
-<!-- BotPenguin bot script ends here -->
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-            { pageLanguage: 'en' },
-            'google_translate_element'
-        );
-    }  
-</script>
 
-<script type="text/javascript"
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
-<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
-<script src="{% static 'js/material.min.js' %}"></script>
 
-<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="{% static 'js/nouislider.min.js' %}" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+    $(function () {
+        var $populationChart = $("#population-chart");
+        $.ajax({
+            url: $populationChart.data("url"),
+            success: function (data) {
 
-<!--	Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
-<script src="{% static 'js/bootstrap-datepicker.js' %}" type="text/javascript"></script>
+                var ctx = $populationChart[0].getContext("2d");
 
-<!--	Plugin for Select Form control, full documentation here: https://github.com/FezVrasta/dropdown.js -->
-<script src="{% static 'js/jquery.dropdown.js' %}" type="text/javascript"></script>
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Population',
+                            backgroundColor: 'blue',
+                            data: data.data
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Blood Pressure Chart'
+                        }
+                    }
+                });
 
-<!--	Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/  -->
-<script src="{% static 'js/jquery.tagsinput.js' %}"></script>
+            }
+        });
 
-<!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="{% static 'js/jasny-bootstrap.min.js' %}"></script>
-
-<!-- Plugin For Google Maps -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-
-<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
-<script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
-
-<script type="text/javascript">
-    $().ready(function () {
-        // the body of this function is in material-kit.js
-        materialKitDemo.initContactUsMap();
     });
-</script>
+
+</script> -->
+
+<!-- <div id="container" class="col-md-offset-3" style="width: 50%;">
+    <canvas id="population-chart" data-url="{% url 'bp-chart' %}"></canvas>
+</div>
+<br>
+<br>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+
+$(function () {
+    console.log("hello")
+    var $populationChart = $("#population-chart");
+    $.ajax({
+        url: $populationChart.data("url"),
+        success: function (data) {
+
+            var ctx = $populationChart[0].getContext("2d");
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: 'Population',
+                        backgroundColor: 'blue',
+                        data: data.data
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Sugar Level Chart'
+                    }
+                }
+            });
+
+        }
+    });
+
+});
+
+</script> -->
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
 </html>

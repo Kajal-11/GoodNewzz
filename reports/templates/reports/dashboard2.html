@@ -111,7 +111,7 @@
 					{% csrf_token %}
 					<fieldset class="form-group">
 						<legend class="border-bottom mb-6 ">Sugar Record</legend>
-						{{ sugarform|crispy}}
+						{{ sugarform|crispy }}
 						<input type="submit" value="Sugar Record" class="btn btn-primary pull-right" />
 					</fieldset>
 				</form>
@@ -120,7 +120,7 @@
 			</div>
 		</div>
 		<div id="container" class="col-md-offset-3" style="width: 50%;">
-			<canvas id="population-chart" data-url="{% url 'bp-chart' %}"></canvas>
+			<canvas id="population-chart" data-url="{% url 'sugar-chart' %}"></canvas>
 		</div>
 		<br>
 		<br>
