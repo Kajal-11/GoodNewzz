@@ -2,13 +2,9 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-<<<<<<< HEAD
-=======
-
->>>>>>> 44b8edf1b9fb4e592af5da4118d5ea980e69cb7d
-    path('before1/',          views.dashboard,		name='before1'),
-    path('during1/',          views.dashboard,		name='during1'),
-    path('after1/',          views.dashboard,		name='after1'),
+    path('before1/',          views.before1,		name='before1'),
+    path('during1/',          views.during1,		name='during1'),
+    path('after1/',          views.after1,		name='after1'),
     path('dashboard/',          views.dashboard,		name='dashboard'),
     path('bp/record/', 			views.addbp,			name='bp-record'),
    	path('sugar/record/', 		views.addsugar,		    name='sugar-record'),

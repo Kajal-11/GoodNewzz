@@ -49,7 +49,7 @@
 			<div class="collapse navbar-collapse" id="navigation-example">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="{% url 'home' %}"> Home
+						<a href="{% url 'dashboard' %}"> Home
 						</a>
 					</li>
 					<li class="dropdown">
@@ -137,15 +137,14 @@
 				<h2 class="title">Track Your Reports</h2>
 				<div class="team">
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<div class="card card-profile card-plain">
-								<div class="col-md-5">
+								<a href="{% url 'bp-record' %}" class="col-md-5">
 									<div class="card-image">
-										<a href="{% url 'bp-record' %}">
-											<img class="img" src="{% static 'img/faces/download (1).png' %}" />
-										</a>
+										<img class="img" src="{% static 'img/faces/download (1).png' %}" />
+
 									</div>
-								</div>
+								</a>
 								<div class="col-md-7">
 									<div class="content">
 										<h4 class="card-title">Blood Pressure Reports</h4>
@@ -155,15 +154,14 @@
 							</div>
 						</div>
 
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<div class="card card-profile card-plain">
-								<div class="col-md-5">
+								<a href="{% url 'sugar-record' %}" class="col-md-5">
 									<div class="card-image">
-										<a href="{% url 'sugar-record' %}">
-											<img class="img" src="{% static 'img/faces/download.png' %}" />
-										</a>
+										<img class="img" src="{% static 'img/faces/download.png' %}" />
+
 									</div>
-								</div>
+								</a>
 								<div class="col-md-7">
 									<div class="content">
 										<h4 class="card-title">Sugar Report</h4>
@@ -173,15 +171,14 @@
 							</div>
 						</div>
 
-						<div class="col-md-4">
+						<div class="col-md-6 col-md-offset-3">
 							<div class="card card-profile card-plain">
-								<div class="col-md-5">
+								<a href="{% url 'report-record' %}" class="col-md-5">
 									<div class="card-image">
-										<a href="{% url 'report-record' %}">
-											<img class="img" src="{% static 'img/faces/download.jpg' %}" />
-										</a>
+										<img class="img" src="{% static 'img/faces/download.jpg' %}" />
+
 									</div>
-								</div>
+								</a>
 								<div class="col-md-7">
 									<div class="content">
 										<h4 class="card-title">Scan and Record Reports</h4>
@@ -191,19 +188,9 @@
 								</div>
 							</div>
 						</div>
-
-
 					</div>
-
 				</div>
-
 			</div>
-
-		</div>
-
-
-		<div id="container" style="width: 75%;">
-			<canvas id="population-chart" data-url="{% url 'sugar-chart' %}"></canvas>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

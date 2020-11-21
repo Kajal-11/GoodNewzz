@@ -48,6 +48,29 @@
 
 			<div class="collapse navbar-collapse" id="navigation-example">
 				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="{% url 'dashboard' %}"> Home
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu dropdown-with-icons">
+							<li>
+								<a href="{% url 'bp-record' %}">Blood Pressure
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'sugar-record' %}">Sugar
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'report-record' %}">Scan Reports
+								</a>
+							</li>
+						</ul>
+					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Do's and Dont's
 							<b class="caret"></b>
@@ -96,52 +119,52 @@
 
 			</div>
 		</div>
+		<div id="container" class="col-md-offset-3" style="width: 50%;">
+			<canvas id="population-chart" data-url="{% url 'bp-chart' %}"></canvas>
+		</div>
+		<br>
+		<br>
 	</div>
 
-
-	<div id="container" style="width: 75%;">
-		<canvas id="population-chart" data-url="{% url 'sugar-chart' %}"></canvas>
-	</div>
-	
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 	<script>
 
-	$(function () {
-		console.log("hello")
-		var $populationChart = $("#population-chart");
-		$.ajax({
-		url: $populationChart.data("url"),
-		success: function (data) {
+		$(function () {
+			console.log("hello")
+			var $populationChart = $("#population-chart");
+			$.ajax({
+				url: $populationChart.data("url"),
+				success: function (data) {
 
-			var ctx = $populationChart[0].getContext("2d");
+					var ctx = $populationChart[0].getContext("2d");
 
-			new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: data.labels,
-				datasets: [{
-				label: 'Population',
-				backgroundColor: 'blue',
-				data: data.data
-				}]          
-			},
-			options: {
-				responsive: true,
-				legend: {
-				position: 'top',
-				},
-				title: {
-				display: true,
-				text: 'Population Bar Chart'
+					new Chart(ctx, {
+						type: 'bar',
+						data: {
+							labels: data.labels,
+							datasets: [{
+								label: 'Population',
+								backgroundColor: 'blue',
+								data: data.data
+							}]
+						},
+						options: {
+							responsive: true,
+							legend: {
+								position: 'top',
+							},
+							title: {
+								display: true,
+								text: 'Sugar Level Chart'
+							}
+						}
+					});
+
 				}
-			}
 			});
 
-		}
 		});
-
-	});
 
 	</script>
 

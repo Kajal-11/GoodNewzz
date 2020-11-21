@@ -36,20 +36,23 @@ def bp_chart(request):
         'labels': labels,
         'data': data,
     })
+    
+def dashboard(request):
+    return render(request, 'reports/dashboard.html')
 
 @login_required
 def before1(request):
-    return render(request, 'reports/before.html')
+    return render(request, 'reports/before_lp.html')
 
 
 @login_required
 def during1(request):
-    return render(request, 'reports/during.html')
+    return render(request, 'reports/during_lp.html')
 
 
 @login_required
 def after1(request):
-    return render(request, 'reports/after.html')
+    return render(request, 'reports/after_lp.html')
 
 @login_required
 def addbp(request):
