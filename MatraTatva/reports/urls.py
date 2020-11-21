@@ -7,4 +7,5 @@ urlpatterns = [
     path('bp/record/', 			views.addbp,			name='bp-record'),
    	path('sugar/record/', 		views.addsugar,		    name='sugar-record'),
     path('report/record/',      views.addreport,        name='report-record'),
+    path('report/download/',    views.report_pdf,       name='report-download'),
 ]

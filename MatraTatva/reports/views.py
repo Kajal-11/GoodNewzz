@@ -1,9 +1,12 @@
-from django.shortcuts import render, redirect
+from .forms import BPForm, SugarForm, ReportForm
+from .models import BloodPressure, Sugar, Report 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import BPForm, SugarForm, ReportForm
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.views.generic import View
+from MatraTatva.utils import render_to_pdf
 from user.models import User
-from .models import BloodPressure, Sugar, Report 
 import datetime
 
 @login_required
@@ -37,10 +40,9 @@ def addsugar(request):
     if request.method == 'POST':
         form = SugarForm(request.POST)
         if form.is_valid():
-            sugar = form.save()
-            sugar.instance.patient = request.user
-            sugar.instance.time = datetime.datetime.now()
-            sugar.save()   
+            form.instance.patient = request.user
+            form.instance.time = datetime.datetime.now()
+            form.save()   
             messages.success(request, f'Your sugar level has been successfully recorded.')
     else:
         messages.success(request, f'Your sugar level could not be recorded.')
@@ -51,15 +53,31 @@ def addsugar(request):
 @login_required
 def addreport(request):
     if request.method == 'POST':
-        form = ReportForm(request.POST)
+        form = ReportForm(request.POST, request.FILES)
         if form.is_valid():
-            report = form.save()
-            report.instance.patient = request.user
-            report.instance.time = datetime.datetime.now()
-            report.save()   
+            form.instance.patient = request.user
+            form.instance.time = datetime.datetime.now()
+            form.save()   
             messages.success(request, f'Your report has been successfully stored.')
     else:
         messages.success(request, f'Your bp could not be stored.')
     
     return redirect('dashboard')
             
+@login_required
+def report_pdf(request):
+    context = {
+            'objects': Report.objects.filter(patient=request.user), 
+    }
+    # return render(request, 'reports/report.html', context)
+    pdf = render_to_pdf('reports/report.html', context)
+    if pdf:
+        response = HttpResponse(pdf, content_type='application/pdf')
+        filename = "Report_%s.pdf" %(datetime.datetime.now())
+        content = "inline; filename='%s'" %(filename)
+        download = request.GET.get("download")
+        if download:
+            content = "attachment; filename='%s'" %(filename)
+        response['Content-Disposition'] = content
+        return response
+    return HttpResponse("Not found")
