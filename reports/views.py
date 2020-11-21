@@ -1,5 +1,5 @@
-from .forms import BPForm, SugarForm, ReportForm
-from .models import BloodPressure, Sugar, Report 
+from .forms import BPForm, SugarForm, ReportForm, ReminderForm
+from .models import BloodPressure, Sugar, Report, Reminder
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
@@ -72,9 +72,7 @@ def addbp(request):
     
     return render(request, 'reports/dashboard1.html', context)
 
-            
-
-
+    
 @login_required
 def addsugar(request):
     if request.method == 'POST':
@@ -128,3 +126,22 @@ def report_pdf(request):
         response['Content-Disposition'] = content
         return response
     return HttpResponse("Not found")
+
+@login_required
+def reminder(request):
+    if request.method == 'POST':
+        form = ReminderForm(request.POST)
+        if form.is_valid():
+            form.instance.patient = request.user
+            form.save()   
+            messages.success(request, f'Your reminder has been successfully noted.')
+        else:
+            messages.success(request, f'Your reminder could not be noted. Please try again!')
+        
+    context = {
+        'reminderform': ReminderForm(),
+        'reminders': Reminder.objects.filter(patient=request.user)
+    }
+    
+    return render(request, 'reports/reminder.html', context)
+            
