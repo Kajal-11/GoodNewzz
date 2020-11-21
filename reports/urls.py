@@ -2,8 +2,15 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
+<<<<<<< HEAD
     
     # path('dashboard/',          views.dashboard,		name='dashboard'),
+=======
+    path('before1/',          views.dashboard,		name='before1'),
+    path('during1/',          views.dashboard,		name='during1'),
+    path('after1/',          views.dashboard,		name='after1'),
+    path('dashboard/',          views.dashboard,		name='dashboard'),
+>>>>>>> c3c0b3142968674eddc79dec6bf06f727ac71d05
     path('bp/record/', 			views.addbp,			name='bp-record'),
    	path('sugar/record/', 		views.addsugar,		    name='sugar-record'),
     path('report/record/',      views.addreport,        name='report-record'),

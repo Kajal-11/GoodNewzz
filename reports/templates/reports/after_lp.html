@@ -1,0 +1,367 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="../img/apple-icon.png">
+	<link rel="icon" type="image/png" href="../img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Maatratva</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/material-kit.css' %}" rel="stylesheet" />
+</head>
+
+<body class="about-us">
+	{% if messages %}
+    <div style="background: black; height:80px; width: 100%"></div>
+    <ul class="messages"
+        style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
+        {% for message in messages %}
+        <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
+        {% endfor %}
+    </ul>
+    {% endif %}
+	<nav class="navbar navbar-transparent navbar-absolute">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{% url 'home' %}">Maatratva</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="navigation-example">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="{% url 'home' %}"> Home
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'dashboard' %}"> Reports
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Do's and Dont's
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu dropdown-with-icons">
+							<li> 
+								<a href="{% url 'before1' %}">Before Pregnancy
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'during1' %}">During Pregnancy
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'after1' %}">After Pregnancy
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li id="google_translate_element"></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="page-header header-filter" data-parallax="active" style="background-image: url({% static 'img/bg9.jpeg' %});">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h1 class="title">After Pregnancy</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="main main-raised">
+		<div class="container">
+			<div class="about-team team-1">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<h2 class="title">DO'S</h2>
+						<h5 class="description">Things to keep in mind after pregnancy.</h5>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3">
+						<div class="card card-profile card-dark">
+							<div class="content">
+								<p class="card-description">Starting a birth control method immediately after you have a
+									baby can help you avoid an unintended pregnancy.
+									It also lets you control if or when you want to become pregnant again.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="card card-profile card-dark">
+							<div class="content">
+								<p class="card-description">
+									Choose the obstetrician and hospital with care. Avoid frequent changes as this leads
+									to conflicting opinions during consultations.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="card card-profile card-dark">
+							<div class="content">
+								<p class="card-description">Do consume more of organic and homemade food, since this
+									is rich in minerals and essential vitamins and proteins. 
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="card card-profile card-dark">
+							<div class="content">
+								<p class="card-description">
+									If you think you may have postpartum depression, or if your partner or family
+									members are concerned that you do,
+									it is important to see your ob-gyn or other health care
+									professional as soon as possible.
+								</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="card card-profile card-dark">
+							<div class="content">
+								<p class="card-description">Pelvic floor exercises, also called Kegel exercises, are
+									used to strengthen the muscles that surround the openings of the urethra, vagina,
+									and rectum.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="card card-profile card-dark">
+							<div class="content">
+								<p class="card-description">Do choose foods with antioxidants throughout pregnancy such
+									as dark green spinach, oranges, carrots, red apples, yellow bananas, blueberries.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="card card-profile card-dark">
+							<div class="content">
+								<p class="card-description">Drink at least eight glasses (1.5 litres) of fluid every
+									day, mostly water. It’s very important to stay hydrated. Drink fluids as much as possible.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="card card-profile card-dark">
+							<div class="content">
+								<p class="card-description">If you are diagnosed with heart disease during pregnancy,
+									you may need to see your ob-gyn earlier or more
+									often after childbirth so they can keep a close eye on your health.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="about-team team-1">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center">
+							<h2 class="title">DONT'S</h2>
+							<h5 class="description">Things to avoid after pregnancy.</h5>
+						</div>
+					</div>
+
+					<div class="row">
+						
+						<div class="col-md-3">
+							<div class="card card-profile card-dark">
+								<div class="content">
+									<p class="card-description">. Don’t strain when trying to poop. The muscles you use
+										for pooping are the same muscles that you overexerted during childbirth.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<div class="card card-profile card-dark">
+								<div class="content">
+									<p class="card-description">Smoking, drinking alcohol or drugs may be detrimental to
+										development and health.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<div class="card card-profile card-dark">
+								<div class="content">
+									<p class="card-description"> Don’t use tampons until after you’ve seen your doctor
+										for your post-natal check.
+									</p>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col-md-3">
+							<div class="card card-profile card-dark">
+								<div class="content">
+									<p class="card-description">Don’t wear clothes that are tight around your perineal
+										area. Not only will these be uncomfortable, it also increases the risk of
+										infection.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="card card-profile card-dark">
+								<div class="content">
+									<p class="card-description">Avoid dehydration, stress, over exertion and aggressive
+										exercises.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						
+						<div class="col-md-3">
+							<div class="card card-profile card-dark">
+								<div class="content">
+									<p class="card-description"> Don’t engage in high impact exercises and activities.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<div class="card card-profile card-dark">
+								<div class="content">
+									<p class="card-description">Don’t get into the sauna or steam room or overheat in
+										the bath.
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<div class="card card-profile card-dark">
+								<div class="content">
+									<p class="card-description">Do not consume street foods to avoid gastrointestinal
+										problems.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<footer class="footer">
+				<div class="container">
+					<nav class="pull-left">
+						<ul>
+							<li>
+								<a href="http://www.creative-tim.com">
+									Creative Tim
+								</a>
+							</li>
+							<li>
+								<a href="http://presentation.creative-tim.com">
+									About Us
+								</a>
+							</li>
+							<li>
+								<a href="http://blog.creative-tim.com">
+									Blog
+								</a>
+							</li>
+							<li>
+								<a href="http://www.creative-tim.com/license">
+									Licenses
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="copyright pull-right">
+						&copy;
+						<script>document.write(new Date().getFullYear())</script>, made with <i
+							class="fa fa-heart heart"></i>
+						by Creative Tim
+					</div>
+				</div>
+			</footer>
+
+</body>
+<!--   Core JS Files   -->
+<!-- BotPenguin bot script starts here -->
+<script id="Ym90cGVuZ3VpbkFwaQ" src="https://cdn.botpenguin.com/bot.js?apiKey=G%263_a%28-%3E%29VsCVCWo%7ED6X%3EI" async></script>
+<!-- BotPenguin bot script ends here -->
+<script type="text/javascript">
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement(
+			{ pageLanguage: 'en' },
+			'google_translate_element'
+		);
+	}  
+</script>
+
+<script type="text/javascript"
+	src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/material.min.js' %}"></script>
+
+<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="{% static 'js/nouislider.min.js' %}" type="text/javascript"></script>
+
+<!--	Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+<script src="{% static 'js/bootstrap-datepicker.js' %}" type="text/javascript"></script>
+
+<!--	Plugin for Select Form control, full documentation here: https://github.com/FezVrasta/dropdown.js -->
+<script src="{% static 'js/jquery.dropdown.js' %}" type="text/javascript"></script>
+
+<!--	Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/  -->
+<script src="{% static 'js/jquery.tagsinput.js' %}"></script>
+
+<!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="{% static 'js/jasny-bootstrap.min.js' %}"></script>
+
+<!-- Plugin For Google Maps -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+<script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
+
+
+</html>
