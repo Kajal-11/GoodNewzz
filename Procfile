@@ -1,0 +1,1 @@
+web: gunicorn MatraTatva.wsgi
