@@ -77,15 +77,15 @@
 						</a>
 						<ul class="dropdown-menu dropdown-with-icons">
 							<li>
-								<a href="{% url 'before' %}">Before Pregnancy
+								<a href="{% url 'before1' %}">Before Pregnancy
 								</a>
 							</li>
 							<li>
-								<a href="{% url 'during' %}">During Pregnancy
+								<a href="{% url 'during1' %}">During Pregnancy
 								</a>
 							</li>
 							<li>
-								<a href="{% url 'after' %}">After Pregnancy
+								<a href="{% url 'after1' %}">After Pregnancy
 								</a>
 							</li>
 						</ul>
@@ -99,8 +99,15 @@
 			</div>
 		</div>
 	</nav>
-
-	<div id="contactUsMap" class="big-map"></div>
+	<div class="page-header header-filter" data-parallax="active" style="background-image: url({% static 'img/bg9.jpg' %});">
+		<div class="container">
+			<div class="row">
+				<div class="text-center">
+					<h1 class="title">Scan Reports</h1>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="main main-raised">
 		<div class="contact-content">
@@ -113,6 +120,7 @@
 					<fieldset class="form-group">
 						<legend class="border-bottom mb-6 ">Add a Report</legend>
 						{{ reportform|crispy }}
+						<p>(Click Report Image to upload.)</p>
 						<input type="submit" value="Report Record" class="btn btn-primary pull-right" />
 					</fieldset>
 				</form>
