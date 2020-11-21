@@ -33,28 +33,50 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="../presentation.html">Maatratva</a>
+				<a class="navbar-brand" href="{% url 'home' %}">Maatratva</a>
 				<div id="google_translate_element"></div>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navigation-example">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="../index.html">
-							<i class="material-icons">apps</i> Sign Out
+						<a href="{% url 'home' %}"> Home
 						</a>
 					</li>
-
-
-				</ul>
-				</li>
+					<li>
+						<a href="{% url 'login' %}"> Login
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Do's and Dont's
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu dropdown-with-icons">
+							<li> 
+								<a href="{% url 'before' %}">Before Pregnancy
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'during' %}">During Pregnancy
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'after' %}">After Pregnancy
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="{% url 'signup' %}">Sign Up
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
 
-	<div class="page-header header-filter" data-parallax="active" style="background-image: url('../img/bg9.jpeg');">
+	<div class="page-header header-filter" data-parallax="active" style="background-image: url({% static 'img/bg3.jpg' %});">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">

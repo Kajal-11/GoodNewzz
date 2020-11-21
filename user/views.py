@@ -15,6 +15,15 @@ from .models import User
 def home(request):
     return render(request, 'user/landing-page.html')
 
+def before(request):
+    return render(request, 'user/before_lp.html')
+
+def during(request):
+    return render(request, 'user/during_lp.html')
+
+def after(request):
+    return render(request, 'user/after_lp.html')
+
 def userregister(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
