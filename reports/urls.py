@@ -2,6 +2,10 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
+<<<<<<< HEAD
+=======
+
+>>>>>>> 44b8edf1b9fb4e592af5da4118d5ea980e69cb7d
     path('before1/',          views.dashboard,		name='before1'),
     path('during1/',          views.dashboard,		name='during1'),
     path('after1/',          views.dashboard,		name='after1'),
