@@ -34,19 +34,15 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="{% url 'home' %}">Maatratva</a>
-
-				<div id="google_translate_element"></div>
 			</div>
 			<div class="collapse navbar-collapse" id="navigation-example">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="{% url 'login' %}">
-							<i class="material-icons">login</i> Login
+						<a href="{% url 'login' %}"> Login
 						</a>
 					</li>
 					<li>
-						<a href="{% url 'signup' %}">
-							<i class="material-icons">how_to_reg</i> Sign Up
+						<a href="{% url 'signup' %}">Sign Up
 						</a>
 					</li>
 					<li class="dropdown">
@@ -68,6 +64,7 @@
 							</li>
 						</ul>
 					</li>
+					<li id="google_translate_element"></li>
 				</ul>
 			</div>
 		</div>
