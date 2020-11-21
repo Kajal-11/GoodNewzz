@@ -53,11 +53,30 @@
 						</a>
 					</li>
 					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu dropdown-with-icons">
+							<li>
+								<a href="{% url 'bp-record' %}">Blood Pressure
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'sugar-record' %}">Sugar
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'report-record' %}">Scan Reports
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Do's and Dont's
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu dropdown-with-icons">
-							<li> 
+							<li>
 								<a href="{% url 'before1' %}">Before Pregnancy
 								</a>
 							</li>
@@ -80,123 +99,189 @@
 	<div id="contactUsMap" class="big-map"></div>
 
 	<div class="main main-raised">
-		<div class="contact-content">
-			<div class="container">
-				<h2 class="title">Add your Reports</h2>
-
-				<form class="form1" id="login-form" method="post" action="{% url 'bp-record' %}">
-					{% csrf_token %}
-					<fieldset class="form-group">
-						<legend class="border-bottom mb-6 ">BP Record</legend>
-						{{ bpform|crispy}}
-						<input type="submit" value="BP Record" class="btn btn-primary pull-right" />
-					</fieldset>
-				</form>
-
-				<form class="form1" id="login-form" method="post" action="{% url 'sugar-record' %}">
-					{% csrf_token %}
-					<fieldset class="form-group">
-						<legend class="border-bottom mb-6 ">Sugar Record</legend>
-						{{ sugarform|crispy}}
-						<input type="submit" value="Sugar Record" class="btn btn-primary pull-right" />
-					</fieldset>
-				</form>
-
-				<form class="form1" id="login-form" method="post" action="{% url 'report-record' %}"
-					enctype="multipart/form-data">
-					{% csrf_token %}
-					<fieldset class="form-group">
-						<legend class="border-bottom mb-6 ">Add a Report</legend>
-						{{ reportform|crispy }}
-						<input type="submit" value="Report Record" class="btn btn-primary pull-right" />
-					</fieldset>
-				</form>
-
-				<a href="{% url 'report-download' %}" target="blank">Download Reports</a>
+		<div class="container">
+			<div class="section text-center">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="info">
+							<a href="{% url 'before1' %}" class="icon icon-info">
+								<i class="material-icons">child_care</i>
+							</a>
+							<h4 class="info-title">BEFORE PREGNANCY</h4>
+							<p>Your guide to things to keep in mind before pregnancy.</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="info">
+							<a href="{% url 'during1' %}" class="icon icon-success">
+								<i class="material-icons">pregnant_woman</i>
+							</a>
+							<h4 class="info-title">DURING PREGNANCY</h4>
+							<p>Track your appointments, store your reports and follow the facts for a safe and healthy
+								pregnancy.</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="info">
+							<a href="{% url 'after1' %}" class="icon icon-danger">
+								<i class="material-icons">baby_changing_station</i>
+							</a>
+							<h4 class="info-title">AFTER PREGNANCY</h4>
+							<p>Schedule your vaccines, get nannies near you and therapists.</p>
+						</div>
+					</div>
+				</div>
 			</div>
+
+			<div class="section text-center">
+				<h2 class="title">Track Your Reports</h2>
+				<div class="team">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card card-profile card-plain">
+								<div class="col-md-5">
+									<div class="card-image">
+										<a href="{% url 'bp-record' %}">
+											<img class="img" src="{% static 'img/faces/download (1).png' %}" />
+										</a>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="content">
+										<h4 class="card-title">Blood Pressure Reports</h4>
+										<h6 class="category text-muted">Add your Blood Pressure Reports</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card card-profile card-plain">
+								<div class="col-md-5">
+									<div class="card-image">
+										<a href="{% url 'sugar-record' %}">
+											<img class="img" src="{% static 'img/faces/download.png' %}" />
+										</a>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="content">
+										<h4 class="card-title">Sugar Report</h4>
+										<h6 class="category text-muted">Add your Sugar Test Results</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card card-profile card-plain">
+								<div class="col-md-5">
+									<div class="card-image">
+										<a href="{% url 'report-record' %}">
+											<img class="img" src="{% static 'img/faces/download.jpg' %}" />
+										</a>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="content">
+										<h4 class="card-title">Scan and Record Reports</h4>
+										<h6 class="category text-muted">Scan your reports and download a PDF file of all
+											your medical history.</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
-	</div>
 
 
-	<div id="container" style="width: 75%;">
-		<canvas id="population-chart" data-url="{% url 'sugar-chart' %}"></canvas>
-	</div>
-	
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-	<script>
+		<div id="container" style="width: 75%;">
+			<canvas id="population-chart" data-url="{% url 'sugar-chart' %}"></canvas>
+		</div>
 
-	$(function () {
-		console.log("hello")
-		var $populationChart = $("#population-chart");
-		$.ajax({
-		url: $populationChart.data("url"),
-		success: function (data) {
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+		<script>
 
-			var ctx = $populationChart[0].getContext("2d");
+			$(function () {
+				console.log("hello")
+				var $populationChart = $("#population-chart");
+				$.ajax({
+					url: $populationChart.data("url"),
+					success: function (data) {
 
-			new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: data.labels,
-				datasets: [{
-				label: 'Population',
-				backgroundColor: 'blue',
-				data: data.data
-				}]          
-			},
-			options: {
-				responsive: true,
-				legend: {
-				position: 'top',
-				},
-				title: {
-				display: true,
-				text: 'Population Bar Chart'
-				}
-			}
+						var ctx = $populationChart[0].getContext("2d");
+
+						new Chart(ctx, {
+							type: 'bar',
+							data: {
+								labels: data.labels,
+								datasets: [{
+									label: 'Population',
+									backgroundColor: 'blue',
+									data: data.data
+								}]
+							},
+							options: {
+								responsive: true,
+								legend: {
+									position: 'top',
+								},
+								title: {
+									display: true,
+									text: 'Population Bar Chart'
+								}
+							}
+						});
+
+					}
+				});
+
 			});
 
-		}
-		});
+		</script>
 
-	});
-
-	</script>
-
-	<footer class="footer">
-		<div class="container">
-			<nav class="pull-left">
-				<ul>
-					<li>
-						<a href="http://www.creative-tim.com">
-							Creative Tim
-						</a>
-					</li>
-					<li>
-						<a href="http://presentation.creative-tim.com">
-							About Us
-						</a>
-					</li>
-					<li>
-						<a href="http://blog.creative-tim.com">
-							Blog
-						</a>
-					</li>
-					<li>
-						<a href="http://www.creative-tim.com/license">
-							Licenses
-						</a>
-					</li>
-				</ul>
-			</nav>
-			<div class="copyright pull-right">
-				&copy;
-				<script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i>
-				by Creative Tim
+		<footer class="footer">
+			<div class="container">
+				<nav class="pull-left">
+					<ul>
+						<li>
+							<a href="http://www.creative-tim.com">
+								Creative Tim
+							</a>
+						</li>
+						<li>
+							<a href="http://presentation.creative-tim.com">
+								About Us
+							</a>
+						</li>
+						<li>
+							<a href="http://blog.creative-tim.com">
+								Blog
+							</a>
+						</li>
+						<li>
+							<a href="http://www.creative-tim.com/license">
+								Licenses
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="copyright pull-right">
+					&copy;
+					<script>document.write(new Date().getFullYear())</script>, made with <i
+						class="fa fa-heart heart"></i>
+					by Creative Tim
+				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 </body>
 <!--   Core JS Files   -->
 <!-- BotPenguin bot script starts here -->
