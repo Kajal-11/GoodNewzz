@@ -136,9 +136,9 @@ MAILER_EMAIL_BACKEND = EMAIL_BACKEND
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_ID')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_ID')
+EMAIL_HOST_USER = "kajal11122000@gmail.com"
+EMAIL_HOST_PASSWORD = "yrlfwyiqxpfdrzwu"
+DEFAULT_FROM_EMAIL = "kajal11122000@gmail.com"
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
