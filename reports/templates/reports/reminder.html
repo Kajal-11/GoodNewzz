@@ -48,21 +48,44 @@
 
 			<div class="collapse navbar-collapse" id="navigation-example">
 				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="{% url 'dashboard' %}"> Home
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu dropdown-with-icons">
+							<li>
+								<a href="{% url 'bp-record' %}">Blood Pressure
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'sugar-record' %}">Sugar
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'report-record' %}">Scan Reports
+								</a>
+							</li>
+						</ul>
+					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Do's and Dont's
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu dropdown-with-icons">
 							<li>
-								<a href="{% url 'before' %}">Before Pregnancy
+								<a href="{% url 'before1' %}">Before Pregnancy
 								</a>
 							</li>
 							<li>
-								<a href="{% url 'during' %}">During Pregnancy
+								<a href="{% url 'during1' %}">During Pregnancy
 								</a>
 							</li>
 							<li>
-								<a href="{% url 'after' %}">After Pregnancy
+								<a href="{% url 'after1' %}">After Pregnancy
 								</a>
 							</li>
 						</ul>
@@ -82,13 +105,13 @@
 	<div class="main main-raised">
 		<div class="contact-content">
 			<div class="container">
-				<h2 class="title">Add your Reports</h2>
+				<h2 class="title">Add Reminders</h2>
 
 				<form class="form1" id="login-form" method="post" action=""
 					enctype="multipart/form-data">
 					{% csrf_token %}
 					<fieldset class="form-group">
-						<legend class="border-bottom mb-6 ">Add a Reminder</legend>
+						<legend class="border-bottom mb-6 ">Add reminders for appointments, vaccinations and medicines.</legend>
 						{{ reminderform|crispy }}
 						<input type="submit" value="Add Reminder" class="btn btn-primary pull-right" />
 					</fieldset>
