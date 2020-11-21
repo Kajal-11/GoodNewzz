@@ -24,7 +24,15 @@
 </head>
 
 <body class="contact-page">
-
+	{% if messages %}
+	<div style="background: black; height:80px; width: 100%"></div>
+	<ul class="messages"
+		style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
+		{% for message in messages %}
+		<h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
+		{% endfor %}
+	</ul>
+	{% endif %}
 	<nav class="navbar navbar-inverse navbar-fixed-top ">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -35,11 +43,34 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="../presentation.html">Maatratva</a>
+				<a class="navbar-brand" href="{% url 'home' %}">Maatratva</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navigation-example">
 				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Do's and Dont's
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu dropdown-with-icons">
+							<li>
+								<a href="{% url 'before' %}">Before Pregnancy
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'during' %}">During Pregnancy
+								</a>
+							</li>
+							<li>
+								<a href="{% url 'after' %}">After Pregnancy
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="{% url 'home' %}">Sign Out
+						</a>
+					</li>
 					<li id="google_translate_element"></li>
 				</ul>
 			</div>
@@ -123,7 +154,8 @@
 </body>
 <!--   Core JS Files   -->
 <!-- BotPenguin bot script starts here -->
-<script id="Ym90cGVuZ3VpbkFwaQ" src="https://cdn.botpenguin.com/bot.js?apiKey=G%263_a%28-%3E%29VsCVCWo%7ED6X%3EI" async></script>
+<script id="Ym90cGVuZ3VpbkFwaQ" src="https://cdn.botpenguin.com/bot.js?apiKey=G%263_a%28-%3E%29VsCVCWo%7ED6X%3EI"
+	async></script>
 <!-- BotPenguin bot script ends here -->
 <script type="text/javascript">
 	function googleTranslateElementInit() {
