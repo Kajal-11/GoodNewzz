@@ -84,15 +84,6 @@
 			<div class="container">
 				<h2 class="title">Add your Reports</h2>
 
-				<form class="form1" id="login-form" method="post" action="{% url 'bp-record' %}">
-					{% csrf_token %}
-					<fieldset class="form-group">
-						<legend class="border-bottom mb-6 ">BP Record</legend>
-						{{ bpform|crispy}}
-						<input type="submit" value="BP Record" class="btn btn-primary pull-right" />
-					</fieldset>
-				</form>
-
 				<form class="form1" id="login-form" method="post" action="{% url 'sugar-record' %}">
 					{% csrf_token %}
 					<fieldset class="form-group">
@@ -102,17 +93,7 @@
 					</fieldset>
 				</form>
 
-				<form class="form1" id="login-form" method="post" action="{% url 'report-record' %}"
-					enctype="multipart/form-data">
-					{% csrf_token %}
-					<fieldset class="form-group">
-						<legend class="border-bottom mb-6 ">Add a Report</legend>
-						{{ reportform|crispy }}
-						<input type="submit" value="Report Record" class="btn btn-primary pull-right" />
-					</fieldset>
-				</form>
 
-				<a href="{% url 'report-download' %}" target="blank">Download Reports</a>
 			</div>
 		</div>
 	</div>

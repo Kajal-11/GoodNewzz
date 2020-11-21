@@ -93,33 +93,13 @@
 					</fieldset>
 				</form>
 
-				<form class="form1" id="login-form" method="post" action="{% url 'sugar-record' %}">
-					{% csrf_token %}
-					<fieldset class="form-group">
-						<legend class="border-bottom mb-6 ">Sugar Record</legend>
-						{{ sugarform|crispy}}
-						<input type="submit" value="Sugar Record" class="btn btn-primary pull-right" />
-					</fieldset>
-				</form>
-
-				<form class="form1" id="login-form" method="post" action="{% url 'report-record' %}"
-					enctype="multipart/form-data">
-					{% csrf_token %}
-					<fieldset class="form-group">
-						<legend class="border-bottom mb-6 ">Add a Report</legend>
-						{{ reportform|crispy }}
-						<input type="submit" value="Report Record" class="btn btn-primary pull-right" />
-					</fieldset>
-				</form>
-
-				<a href="{% url 'report-download' %}" target="blank">Download Reports</a>
 			</div>
 		</div>
 	</div>
 
 
 	<div id="container" style="width: 75%;">
-		<canvas id="population-chart" data-url="{% url 'sugar-chart' %}"></canvas>
+		<canvas id="population-chart" data-url="{% url 'bp-chart' %}"></canvas>
 	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

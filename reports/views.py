@@ -2,22 +2,40 @@ from .forms import BPForm, SugarForm, ReportForm
 from .models import BloodPressure, Sugar, Report 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.db.models import Sum
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from MatraTatva.utils import render_to_pdf
 from user.models import User
 import datetime
 
-@login_required
-def dashboard(request):
-    context = {
-        'bpform': BPForm(),
-        'sugarform': SugarForm(),
-        'reportform': ReportForm(),
-    }
+
+def sugar_chart(request):
+    labels = []
+    data = []
+    queryset = Sugar.objects.filter(patient=request.user).values('time').annotate(sugar_level=Sum('value')).order_by('time')
+    for entry in queryset:
+        labels.append(entry['time'])
+        data.append(entry['sugar_level'])
     
-    return render(request, 'reports/dashboard.html', context)
+    return JsonResponse(data={
+        'labels': labels,
+        'data': data,
+    })
+
+def bp_chart(request):
+    labels = []
+    data = []
+    queryset = BloodPressure.objects.filter(patient=request.user).values('time').annotate(blood_pressure=Sum('systole')).order_by('time')
+    for entry in queryset:
+        labels.append(entry['time'])
+        data.append(entry['blood_pressure'])
+    
+    return JsonResponse(data={
+        'labels': labels,
+        'data': data,
+    })
 
 @login_required
 def addbp(request):
@@ -28,10 +46,15 @@ def addbp(request):
             form.instance.time = datetime.datetime.now()
             form.save()   
             messages.success(request, f'Your bp has been successfully recorded.')
-    else:
-        messages.success(request, f'Your bp could not be recorded.')
+        else:
+            messages.success(request, f'Your bp could not be recorded.')
     
-    return redirect('dashboard')
+    context = {
+        'bpform': BPForm(),
+    }
+    
+    return render(request, 'reports/dashboard1.html', context)
+
             
 
 
@@ -44,11 +67,14 @@ def addsugar(request):
             form.instance.time = datetime.datetime.now()
             form.save()   
             messages.success(request, f'Your sugar level has been successfully recorded.')
-    else:
-        messages.success(request, f'Your sugar level could not be recorded.')
+        else:
+            messages.success(request, f'Your sugar level could not be recorded.')
     
-    return redirect('dashboard')
-            
+    context = {
+        'sugarform': SugarForm(),
+    }
+    
+    return render(request, 'reports/dashboard2.html', context)            
 
 @login_required
 def addreport(request):
@@ -59,10 +85,14 @@ def addreport(request):
             form.instance.time = datetime.datetime.now()
             form.save()   
             messages.success(request, f'Your report has been successfully stored.')
-    else:
-        messages.success(request, f'Your bp could not be stored.')
+        else:
+            messages.success(request, f'Your bp could not be stored.')
+        
+    context = {
+        'reportform': ReportForm(),
+    }
     
-    return redirect('dashboard')
+    return render(request, 'reports/dashboard3.html', context)
             
 @login_required
 def report_pdf(request):
