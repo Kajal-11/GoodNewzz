@@ -130,12 +130,15 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  
-EMAIL_HOST = 'smtp.gmail.com' 
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')  
-EMAIL_HOST_USER = os.environ.get('EMAIL_ID')
-EMAIL_PORT = 587 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+MAILER_EMAIL_BACKEND = EMAIL_BACKEND 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "kajal11122000@gmail.com"
+EMAIL_HOST_PASSWORD = "yrlfwyiqxpfdrzwu"
+DEFAULT_FROM_EMAIL = "kajal11122000@gmail.com"
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
