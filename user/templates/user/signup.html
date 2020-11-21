@@ -34,7 +34,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{% url 'home' %}">Matratatva</a>
+				<a class="navbar-brand" href="{% url 'home' %}">Matratva</a>
 				<div id="google_translate_element"></div>
 			</div>
 
@@ -83,19 +83,20 @@
 					<div class="card card-signup">
 						<h2 class="card-title text-center">SIGN UP</h2>
 						<div class="row">
-							<form class="form1 align-center" class="col-md-8 text-center" id="login-form" method="post"
-								action="">
-								{% csrf_token %}
-								<fieldset class="form-group">
-									<legend class="border-bottom mb-6">Sign Up</legend>
-									{{ form|crispy}}
-									<input type="submit" value="Sign up" class="btn btn-primary pull-right" />
-								</fieldset>
-							</form>
-							<div class="border-top pt-4">
-								<small class="text-muted">
-									Already Have An Account?<a class="ml-2" href="{% url 'login' %}"> Login Now </a>
-								</small>
+							<div class="align-center col-md-offset-1 col-md-10">
+								<form class="form1 align-center" class="col-md-8 text-center" id="login-form"
+									method="post" action="">
+									{% csrf_token %}
+									<fieldset class="form-group">
+										{{ form|crispy}}
+										<input type="submit" value="Sign up" class="btn btn-primary pull-right" />
+									</fieldset>
+								</form>
+								<div class="border-top pt-4">
+									<small class="text-muted">
+										Already Have An Account?<a class="ml-2" href="{% url 'login' %}"> Login Now </a>
+									</small>
+								</div>
 							</div>
 						</div>
 					</div>
