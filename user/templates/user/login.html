@@ -25,6 +25,15 @@
 </head>
 
 <body class="login-page">
+	{% if messages %}
+    <div style="background: black; height:80px; width: 100%"></div>
+    <ul class="messages"
+        style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
+        {% for message in messages %}
+        <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
+        {% endfor %}
+    </ul>
+    {% endif %}
 	<nav class="navbar navbar-primary navbar-transparent navbar-absolute">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -35,15 +44,17 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{% url 'home' %}">Matratva</a>
-				<div id="google_translate_element"></div>
+				<a class="navbar-brand" href="{% url 'home' %}">Maatratva</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navigation-example">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="{% url 'home' %}">
-							<i class="material-icons">home</i> Home
+						<a href="{% url 'home' %}"> Home
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'signup' %}"> Sign Up
 						</a>
 					</li>
 					<li class="dropdown">
@@ -65,11 +76,7 @@
 							</li>
 						</ul>
 					</li>
-					<li>
-						<a href="{% url 'signup' %}">
-							<i class="material-icons">how_to_reg</i> Sign Up
-						</a>
-					</li>
+					<li id="google_translate_element"></li>
 				</ul>
 			</div>
 		</div>

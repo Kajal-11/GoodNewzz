@@ -9,7 +9,7 @@
 	<link rel="icon" type="image/png" href="../img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Signup</title>
+	<title>Sign Up</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -24,6 +24,15 @@
 </head>
 
 <body class="signup-page">
+	{% if messages %}
+    <div style="background: black; height:80px; width: 100%"></div>
+    <ul class="messages"
+        style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
+        {% for message in messages %}
+        <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
+        {% endfor %}
+    </ul>
+    {% endif %}
 	<nav class="navbar navbar-primary navbar-transparent navbar-absolute">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -34,20 +43,18 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{% url 'home' %}">Matratva</a>
-				<div id="google_translate_element"></div>
+				<a class="navbar-brand" href="{% url 'home' %}">Maatratva</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navigation-example">
+				
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="{% url 'home' %}">
-							<i class="material-icons">home</i> Home
+						<a href="{% url 'home' %}"> Home
 						</a>
 					</li>
 					<li>
-						<a href="{% url 'login' %}">
-							<i class="material-icons">login</i> Login
+						<a href="{% url 'login' %}"> Login
 						</a>
 					</li>
 					<li class="dropdown">
@@ -69,6 +76,7 @@
 							</li>
 						</ul>
 					</li>
+					<li id="google_translate_element"></li>
 				</ul>
 			</div>
 		</div>

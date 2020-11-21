@@ -23,6 +23,15 @@
 </head>
 
 <body class="about-us">
+	{% if messages %}
+    <div style="background: black; height:80px; width: 100%"></div>
+    <ul class="messages"
+        style="background: #32a852; width: 100%; color: rgb(255, 255, 255); text-align: center; margin: 0px; padding: 10px;">
+        {% for message in messages %}
+        <h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
+        {% endfor %}
+    </ul>
+    {% endif %}
 	<nav class="navbar navbar-transparent navbar-absolute">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -34,7 +43,6 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="{% url 'home' %}">Maatratva</a>
-				<div id="google_translate_element"></div>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navigation-example">
@@ -45,6 +53,10 @@
 					</li>
 					<li>
 						<a href="{% url 'login' %}"> Login
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'signup' %}">Sign Up
 						</a>
 					</li>
 					<li class="dropdown">
@@ -66,10 +78,7 @@
 							</li>
 						</ul>
 					</li>
-					<li>
-						<a href="{% url 'signup' %}">Sign Up
-						</a>
-					</li>
+					<li id="google_translate_element"></li>
 				</ul>
 			</div>
 		</div>
